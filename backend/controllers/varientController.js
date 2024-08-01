@@ -198,7 +198,7 @@ const count_variants_by_product_id = async (req, res) => {
 const delete_variant = async (req, res) => {
     try {
         const variantId = req.params.id;
-        const variant = await Variant.findById(variantId);
+        const variant = await Varient.findById(variantId);
         if (!variant) {
             return res.status(404).send({ success: false, msg: "Variant not found" });
         }
@@ -226,7 +226,7 @@ const delete_variant = async (req, res) => {
 
         await Promise.all(deletePromises);
 
-        await Variant.findByIdAndDelete(variantId);
+        await Varient.findByIdAndDelete(variantId);
 
         res.status(200).send({ success: true, msg: "Variant and its images deleted successfully" });
     } catch (error) {
