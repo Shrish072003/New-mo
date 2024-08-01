@@ -1,0 +1,140 @@
+.container-fluid {
+    background-color: #fff;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.maincard {
+    padding: 0px 15px;
+    border-radius: 0px;
+    background-color: #fff;
+    box-shadow: 4px 4px 50px 30px rgba(129, 129, 129, 0.40), -4px -4px 50px 4px rgba(129, 129, 129, 0.40);
+}
+
+.c1 {
+    background-color: #000;
+    border-radius: 0px
+}
+
+a {
+    margin: 0px;
+    font-size: 14px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: #9e9ea4;
+}
+a:hover {
+    margin: 0px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: #9e9ea4;
+}
+
+/* a:hover {
+    color: #e0726c;
+    background-color: #fff2f1
+} */
+
+.nav-link {
+    padding: 1rem 1.4rem;
+    margin: 0rem 0.7rem
+}
+
+.ac {
+    font-weight: bold;
+    color: #000000 !important;
+    font-size: 12px
+}
+
+input,
+button {
+    width: 96%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 8px 17px;
+    font-size: 13px;
+    border: 1px solid #f5f0ef;
+    color: #dccece
+}
+
+input{
+    text-decoration: none;
+    background:rgba(129, 129, 129, 0.20);
+}
+input::placeholder {
+    color: #000;
+  }
+
+.bt {
+    border-radius: 4px;
+background: #B1081A;
+width: 70%;
+}
+
+form {
+    margin-top: 70px
+}
+
+form>* {
+    margin: 10px 0px !important
+}
+
+#forgot {
+    margin: 0px -60px
+}
+
+#register {
+    text-align: center
+}
+
+img {
+    background-color: antiquewhite
+}
+
+.wlcm {
+    margin-top: 80px;
+    font-size: 32px;
+    font-family:'Armstrong800';
+    color: #fff;
+}
+.wlcm span{
+    color: #B1081A !important;
+font-family: 'Armstrong800';
+font-size: 30px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+text-transform: uppercase;
+}
+
+.sp1 {
+    font-size: 5px
+}
+
+.sp1>span {
+    background-color: #f0c3be
+}
+.mainimagebh{
+    background: transparent;
+}
+.mainformgap{
+    display: flex;
+    align-items: center;
+}
+.main-container-full{
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #ffffffc4;
+    border-radius: 25px; */
+    padding: 5px;
+    margin-top: 20px;
+    /* width: 90%; */
+}
+.table{
+    border-radius: 25px;
+}
+.ac{
+    width: 100%;
+    display: flex;
+
+}

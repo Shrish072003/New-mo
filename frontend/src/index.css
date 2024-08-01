@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+.main-container-full{
+  overflow-y: scroll;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+@font-face {
+  font-family: 'Armstrong';
+  src: url('./fonts/Armstrong\ 400.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Armstrong800';
+  src: url('./fonts/Armstrong\ Extrabold\ 800.otf') format('opentype');
+}
+.h2 span{
+  color: #B1081A;
+  font-family: "Armstrong";
+}
+.h2 {
+  font-size: 24px !important;
+  font-family: "Armstrong";
+}
+/* :root{--bs-border-color: #B1081A !important;} */
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #B1081A;
+}
