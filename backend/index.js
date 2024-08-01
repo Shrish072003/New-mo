@@ -3,9 +3,6 @@ const helmet = require('helmet')
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv'); //chatgpt
-const fs = require('fs');
-const https = require('https'); 
-
 dotenv.config();
 const app = express();
 require("./db/config");
@@ -26,7 +23,6 @@ app.use(cors());
 //   // Add or modify any other headers here
 //   next();
 // });
-
 
 
 
@@ -228,12 +224,9 @@ app.use('/api/v1',fuelPrice);
 const loanCalculator = require("./routes/loanRoute");
 app.use('/api/v1',loanCalculator);
 
-const httpsOptions = {
-  key: fs.readFileSync('/etc/letsencrypt/live/motoroctane.co.in/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/motoroctane.co.in/fullchain.pem')
-};
+// Use process.env.PORT for the server's port
+const PORT = process.env.PORT || 5000; // Use 3000 as a default if PORT is not specified in .env
 
-const HTTPS_PORT = process.env.PORT || 443;
-https.createServer(httpsOptions, app).listen(HTTPS_PORT, () => {
-  console.log(`HTTPS Server running on port ${HTTPS_PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
