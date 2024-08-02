@@ -28,7 +28,7 @@ const dealershipCSVcontroller = async (req, res) => {
                     // Loop through all records and upsert each one
                     for (const record of allRecords) {
                         await dealershipModule.updateOne(
-                            { dealershipName: record.dealershipName }, // Use dealershipName as the filter criteria for upsert
+                            { address: record.address }, // Use dealershipName as the filter criteria for upsert
                             { $set: record }, // Update
                             { upsert: true } // Upsert option
                         );

@@ -26,7 +26,7 @@ const serviceCentreCSVcontroller = async (req, res) => {
                 try {
                     for (const record of allRecords) {
                         await serviceModel.updateOne(
-                            { serviceCentreName: record.serviceCentreName },
+                            { address: record.address },
                             { $set: record },
                             { upsert: true }
                         );
