@@ -1753,334 +1753,372 @@ const EditVariant = () => {
 
 
 
+
         <div className='h2 mt-3'>Variant Technical<span> Specifications</span></div>
 
         <div className='carcardssection'>
           <div className='h2 mt-3 inside-block'>Comfort & <span>Convenience</span></div>
           <div class="form-group d-flex justify-content-evenly mb-3">
             <div>
-              <label for="  ">Ventilated Seats</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Ventilated Seats</label>
+              <input
+                type="text"
+                className="form-control"
+                id="ventilated-seats"
+                placeholder="Ventilated Seats"
+                required
                 value={Ventilated_Seats}
-                onChange={handleVentilated_Seats}
+                onChange={(e) => setVentilated_Seats(e.target.value)}
+                list="ventilated-seats-options"
+              />
 
-              >
-                <option value="" >
-                  Ventilated Seats
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-                <option value="FRONT">FRONT</option>
-                <option value="FRONT & REAR">FRONT & REAR</option>
-              </select>
+              <datalist id="ventilated-seats-options">
+                <option value="YES" />
+                <option value="NA" />
+                <option value="FRONT" />
+                <option value="FRONT & REAR" />
+              </datalist>
             </div>
             <div>
-              <label for="  "> Air Purifier</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" "> Air Purifier</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="air-purifier"
+                placeholder="Air Purifier"
                 value={Air_Purifier}
-                onChange={handleAir_Purifier}
-              >
-                <option value="" >
-                  Air Purifier
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setAir_Purifier(e.target.value)}
+                list="air-purifier-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="air-purifier-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Cruise Control</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Cruise Control</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="cruise-control"
+                placeholder="Cruise Control"
                 value={Cruise_Control}
-                onChange={handleCruise_Control}
-              >
-                <option value="" >
-                  Cruise Control
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setCruise_Control(e.target.value)}
+                list="cruise-control-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="cruise-control-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Rain Sensing Wipers</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Rain Sensing Wipers</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="rain-sensing-wipers"
+                placeholder="Rain Sensing Wipers"
                 value={Rain_Sensing_Wipers}
-                onChange={handleRain_Sensing_Wipers}
-              >
-                <option value="" >
-                  Rain Sensing Wipers
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-                <option value="ADAPTIVE">ADAPTIVE</option>
-              </select>
+                onChange={(e) => setRain_Sensing_Wipers(e.target.value)}
+                list="rain-sensing-wipers-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="rain-sensing-wipers-options">
+                <option value="YES" />
+                <option value="NA" />
+                <option value="ADAPTIVE" />
+              </datalist>
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-3 mt-5">
             <div>
-              <label for="  ">Sunroof</label>
-              <input type="Name" class="form-control" id="  " placeholder="Sunroof" required value={sunroof} onChange={(e) => setsunroof(e.target.value)} />
+              <label for=" ">Sunroof</label>
+              <input type="Name" class="form-control" id=" " placeholder="Sunroof" required value={sunroof} onChange={(e) => setsunroof(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Automatic Headlamp</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Automatic Headlamp</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="automatic-headlamp"
+                placeholder="Automatic Headlamp"
                 value={automaticHeadLamp}
-                onChange={handleautomaticHeadLamp}
-              >
-                <option value="" >
-                  Automatic Headlamp
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setautomaticHeadLamp(e.target.value)}
+                list="automatic-headlamp-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="automatic-headlamp-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Follow Me Home Headlights</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Follow Me Home Headlights</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="follow-me-home-headlights"
+                placeholder="Follow Me Home Headlights"
                 value={Follow_Me_Home_Headlights}
-                onChange={handleFollow_Me_Home_Headlights}
-              >
-                <option value="" >
-                  Follow Me Home Headlights
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setFollow_Me_Home_Headlights(e.target.value)}
+                list="follow-me-home-headlights-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="follow-me-home-headlights-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Keyless Entry</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Keyless Entry</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="keyless-entry"
+                placeholder="Keyless Entry"
                 value={keyLess_Entry}
-                onChange={handlekeyLess_Entry}
-              >
-                <option value="" >
-                  Keyless Entry
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-                <option value="KEYLESS ENTRY">KEYLESS ENTRY</option>
-                <option value="PROXIMITY SENSOR">PROXIMITY SENSOR</option>
-              </select>
+                onChange={(e) => setkeyLess_Entry(e.target.value)}
+                list="keyless-entry-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="keyless-entry-options">
+                <option value="YES" />
+                <option value="NA" />
+                <option value="KEYLESS ENTRY" />
+                <option value="PROXIMITY SENSOR" />
+              </datalist>
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-3 mt-5">
             <div>
-              <label for="  ">Ignition</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Ignition</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="ignition"
+                placeholder="Ignition"
                 value={ignition}
-                onChange={handleignition}
-              >
-                <option value="" >
-                  Ignition
-                </option>
-                <option value="KEY START">KEY START</option>
-                <option value="PUSH BUTTON START STOP">PUSH BUTTON START STOP</option>
-              </select>
+                onChange={(e) => setignition(e.target.value)}
+                list="ignition-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="ignition-options">
+                <option value="KEY START" />
+                <option value="PUSH BUTTON START STOP" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Ambient Lighting</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Ambient Lighting</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="ambient-lighting"
+                placeholder="Ambient Lighting"
                 value={Ambient_Lighting}
-                onChange={handleAmbient_Lighting}
-              >
-                <option value="" >
-                  Ambient Lighting
-                </option>
-                <option value="NA">NA</option>
-                <option value="SINGLE COLOUR">SINGLE COLOUR</option>
-                <option value="MULTI COLOUR">MULTI COLOUR</option>
-              </select>
+                onChange={(e) => setAmbient_Lighting(e.target.value)}
+                list="ambient-lighting-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="ambient-lighting-options">
+                <option value="NA" />
+                <option value="SINGLE COLOUR" />
+                <option value="MULTI COLOUR" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Steering Adjustment</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Steering Adjustment</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="steering-adjustment"
+                placeholder="Steering Adjustment"
                 value={Steering_Adjustment}
-                onChange={handleSteering_Adjustment}
-              >
-                <option value="" >
-                  Steering Adjustment
-                </option>
-                <option value="TILT">TILT</option>
-                <option value="TILT & TELESCOPIC">TILT & TELESCOPIC</option>
-              </select>
+                onChange={(e) => setSteering_Adjustment(e.target.value)}
+                list="steering-adjustment-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="steering-adjustment-options">
+                <option value="TILT" />
+                <option value="TILT & TELESCOPIC" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Air Conditioning</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Air Conditioning</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="air-conditioning"
+                placeholder="Air Conditioning"
                 value={Air_Conditioning}
-                onChange={handleAir_Conditioning}
-              >
-                <option value="" >
-                  Air Conditioning
-                </option>
-                <option value="YES">YES</option>
-                <option value="MANUAL">MANUAL</option>
-                <option value="AUTOMATIC">AUTOMATIC</option>
-                {/* <option value="Proximity Sensor">Proximity Sensor</option> */}
-              </select>
+                onChange={(e) => setAir_Conditioning(e.target.value)}
+                list="air-conditioning-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="air-conditioning-options">
+                <option value="YES" />
+                <option value="MANUAL" />
+                <option value="AUTOMATIC" />
+              </datalist>
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-3 mt-5">
             <div>
-              <label for="  ">Climate Zones</label>
-              <input type="Name" class="form-control" id="  " placeholder="Climate Zones" required value={Climate_Zones} onChange={(e) => setClimate_Zones(e.target.value)} />
+              <label for=" ">Climate Zones</label>
+              <input type="Name" class="form-control" id=" " placeholder="Climate Zones" required value={Climate_Zones} onChange={(e) => setClimate_Zones(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Rear A/C Vents</label>
-              <input type="Name" class="form-control" id="  " placeholder="Rear A/C Vents" required value={rearACvent} onChange={(e) => setrearACvent(e.target.value)} />
+              <label for=" ">Rear A/C Vents</label>
+              <input type="Name" class="form-control" id=" " placeholder="Rear A/C Vents" required value={rearACvent} onChange={(e) => setrearACvent(e.target.value)} />
             </div>
 
             <div>
-              <label for="  ">Front Armrest</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Front Armrest</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="front-armrest"
+                placeholder="Front Armrest"
                 value={frontArmrest}
-                onChange={handlefrontArmrest}
-              >
-                <option value="" >
-                  Front Armrest
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setfrontArmrest(e.target.value)}
+                list="front-armrest-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="front-armrest-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Rear Armrest</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Rear Armrest</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="rear-armrest"
+                placeholder="Rear Armrest"
                 value={rearArmrest}
-                onChange={handlerearArmrest}
-              >
-                <option value="" >
-                  Rear Armrest
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-                <option value="Automatic">Automatic</option>
+                onChange={(e) => setrearArmrest(e.target.value)}
+                list="rear-armrest-options"
+                aria-label="Default select example"
+              />
 
-              </select>
+              <datalist id="rear-armrest-options">
+                <option value="YES" />
+                <option value="NA" />
+                <option value="Automatic" />
+              </datalist>
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-3 mt-5">
             <div>
-              <label for="  ">Inside rear view mirror (IRVM)</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Inside rear view mirror (IRVM)</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="irvm"
+                placeholder="Inside Rear View Mirror (IRVM)"
                 value={IVRM}
-                onChange={handleIVRM}
-              >
-                <option value="" >
-                  Inside rear view mirror (IRVM)
-                </option>
-                <option value="MANUAL">MANUAL</option>
-                <option value="AUTO DIMMING">AUTO DIMMING</option>
-              </select>
-            </div>
-            <div>
-              <label for="  ">Outside rear view mirrors (ORVM)</label>
-              <input type="Name" class="form-control" id="  " placeholder="Outside rear view mirrors (ORVM)" value={OVRM} onChange={(e) => setOVRM(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">Steering Mounted Controls</label>
-              <select
-                className="form-select inwart"
+                onChange={(e) => setIVRM(e.target.value)}
+                list="irvm-options"
                 aria-label="Default select example"
+              />
+
+              <datalist id="irvm-options">
+                <option value="MANUAL" />
+                <option value="AUTO DIMMING" />
+              </datalist>
+            </div>
+            <div>
+              <label for=" ">Outside rear view mirrors (ORVM)</label>
+              <input type="Name" class="form-control" id=" " placeholder="Outside rear view mirrors (ORVM)" value={OVRM} onChange={(e) => setOVRM(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">Steering Mounted Controls</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="steering-mounted-controls"
+                placeholder="Steering Mounted Controls"
                 value={Steering_Mounted_Controls}
-                onChange={handleSteering_Mounted_Controls}
-              >
-                <option value="" >
-                  Steering Mounted Controls
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setSteering_Mounted_Controls(e.target.value)}
+                list="steering-mounted-controls-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="steering-mounted-controls-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Rear Windshield Defogger</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Rear Windshield Defogger</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="rear-windshield-defogger"
+                placeholder="Rear Windshield Defogger"
                 value={Rear_Windshield_Defogger}
-                onChange={handleRear_Windshield_Defogger}
-              >
-                <option value="" >
-                  Rear Windshield Defogger
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setRear_Windshield_Defogger(e.target.value)}
+                list="rear-windshield-defogger-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="rear-windshield-defogger-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
 
           </div>
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
-            {/* <div>
-              <label for="  ">Rear Windshield Defogger</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
-                value={Front_Windshield_Defogger}
-                onChange={handleFront_Windshield_Defogger}
-              >
-                <option value="" >
-                Rear Windshield Defogger
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
-            </div> */}
             <div>
-              <label for="  ">Front Windshield Defogger</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Front Windshield Defogger</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="front-windshield-defogger"
+                placeholder="Front Windshield Defogger"
                 value={Front_Windshield_Defogger}
-                onChange={handFront_Windshield_Defogger}
-              >
-                <option value="" >
-                  Front Windshield Defogger
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setFront_Windshield_Defogger(e.target.value)}
+                list="front-windshield-defogger-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="front-windshield-defogger-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Cooled Glovebox</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Cooled Glovebox</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="cooled-glovebox"
+                placeholder="Cooled Glovebox"
                 value={Cooled_Glovebox}
-                onChange={handleCooled_Glovebox}
-              >
-                <option value="" >
-                  Cooled Glovebox
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setCooled_Glovebox(e.target.value)}
+                list="cooled-glovebox-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="cooled-glovebox-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
           </div>
 
@@ -2094,67 +2132,46 @@ const EditVariant = () => {
           <div className='h2 mt-3 inside-block'>Safety<span></span></div>
           <div class="form-group d-flex justify-content-evenly mb-3">
             <div>
-              <label for="  ">Global NCAP Rating</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Global NCAP Rating</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="global-ncap-rating"
+                placeholder="Select Rating"
                 value={Global_NCAP_Rating}
-                onChange={handleGlobal_NCAP_Rating}
-              >
-                <option value="" >
-                  Select Rating
-                </option>
-                <option value="NA">NA</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
+                onChange={(e) => setGlobal_NCAP_Rating(e.target.value)}
+                list="global-ncap-rating-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="global-ncap-rating-options">
+                <option value="NA" />
+                <option value="1" />
+                <option value="2" />
+                <option value="3" />
+                <option value="4" />
+                <option value="5" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Airbags</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Airbags</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="airbags"
+                placeholder="Airbags"
                 value={airbags}
-                onChange={handleairbags}
-              >
-                <option value="" >
-                  Airbags
-                </option>
-                <option value="NA">NA</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-              </select>
+                onChange={(e) => setairbags(e.target.value)}
+                list="airbags-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="airbags-options">
+                <option value="NA" />
+                {[...Array(30).keys()].map(num => (
+                  <option key={num + 1} value={num + 1} />
+                ))}
+              </datalist>
             </div>
 
             <div className='reactquiltext'>
@@ -2165,82 +2182,94 @@ const EditVariant = () => {
           </div>
           <div class="form-group d-flex justify-content-evenly mb-3">
             <div>
-              <label for="  ">ADAS</label>
-              <input type="Name" class="form-control" id="  " placeholder="ADAS" required value={ADAS} onChange={(e) => setADAS(e.target.value)} />
+              <label for=" ">ADAS</label>
+              <input type="Name" class="form-control" id=" " placeholder="ADAS" required value={ADAS} onChange={(e) => setADAS(e.target.value)} />
             </div>
             <div className='reactquiltext'>
               <label for="">ADAS Features</label>
               <ReactQuill type="text" className="form-control" id="text-areas" required rows="5" value={ADAS_Features} onChange={setADAS_Features} />
             </div>
             <div>
-              <label for="  ">Reverse Camera</label>
-              <input type="Name" class="form-control" id="  " placeholder="Reverse Camera" value={Reverse_Camera} onChange={(e) => setReverse_Camera(e.target.value)} />
+              <label for=" ">Reverse Camera</label>
+              <input type="Name" class="form-control" id=" " placeholder="Reverse Camera" value={Reverse_Camera} onChange={(e) => setReverse_Camera(e.target.value)} />
             </div>
           </div>
 
 
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Reverse Camera Guidelines</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Reverse Camera Guidelines</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="reverse-camera-guidelines"
+                placeholder="Reverse Camera Guidelines"
                 value={Reverse_Camera_Guidelines}
-                onChange={handleReverse_Camera_Guidelines}
-              >
-                <option value="" >
-                  Reverse Camera Guidelines
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-                <option value="STATIC">STATIC</option>
-                <option value="ADAPTIVE">ADAPTIVE</option>
-              </select>
+                onChange={(e) => setReverse_Camera_Guidelines(e.target.value)}
+                list="reverse-camera-guidelines-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="reverse-camera-guidelines-options">
+                <option value="YES" />
+                <option value="NA" />
+                <option value="STATIC" />
+                <option value="ADAPTIVE" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Tyre pressure Monitor (TPMS)</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Tyre pressure Monitor (TPMS)</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="tpms"
+                placeholder="Tyre pressure Monitor (TPMS)"
                 value={TMPS}
-                onChange={handleTMPS}
-              >
-                <option value="" >
-                  Tyre pressure Monitor (TPMS)
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setTMPS(e.target.value)}
+                list="tpms-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="tpms-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Hill Hold Assist</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Hill Hold Assist</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="hill-hold-assist"
+                placeholder="Hill Hold Assist"
                 value={Hill_Hold_Assist}
-                onChange={handleHill_Hold_Assist}
-              >
-                <option value="" >
-                  Hill Hold Assist
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setHill_Hold_Assist(e.target.value)}
+                list="hill-hold-assist-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="hill-hold-assist-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Hill Descent Control</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Hill Descent Control</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="hill-descent-control"
+                placeholder="Hill Descent Control"
                 value={Hill_Descent_Control}
-                onChange={handleHill_Descent_Control}
-              >
-                <option value="" >
-                  Hill Descent Control
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setHill_Descent_Control(e.target.value)}
+                list="hill-descent-control-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="hill-descent-control-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
           </div>
 
@@ -2248,64 +2277,77 @@ const EditVariant = () => {
           <div class="form-group d-flex justify-content-evenly mb-3">
 
             <div>
-              <label for="  ">Roll Over Mitigation</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Roll Over Mitigation</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="roll-over-mitigation"
+                placeholder="Roll Over Mitigation"
                 value={Roll_Over_Mitigation}
-                onChange={handleRoll_Over_Mitigation}
-              >
-                <option value="" >
-                  Roll Over Mitigation
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setRoll_Over_Mitigation(e.target.value)}
+                list="roll-over-mitigation-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="roll-over-mitigation-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Disc Brakes</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Disc Brakes</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="disc-brakes"
+                placeholder="Disc Brakes"
                 value={Disc_Brakes}
-                onChange={handleDisc_Brakes}
-              >
-                <option value="" >
-                  Disc Brakes
-                </option>
-                <option value="FRONT">FRONT</option>
-                <option value="FRONT & REAR">Front & Rear</option>
-              </select>
+                onChange={(e) => setDisc_Brakes(e.target.value)}
+                list="disc-brakes-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="disc-brakes-options">
+                <option value="FRONT" />
+                <option value="FRONT & REAR" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">Electronic stability program (ESP)</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Electronic stability program (ESP)</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="esp"
+                placeholder="Electronic Stability Program (ESP)"
                 value={ESP}
-                onChange={handleESP}
-              >
-                <option value="" >
-                  Electronic stability program (ESP)
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setESP(e.target.value)}
+                list="esp-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="esp-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
             <div>
-              <label for="  ">ABS</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">ABS</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="abs"
+                placeholder="ABS"
                 value={ABS}
-                onChange={handleABS}
-              >
-                <option value="" >
-                  ABS
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setABS(e.target.value)}
+                list="abs-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="abs-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
 
 
@@ -2313,128 +2355,159 @@ const EditVariant = () => {
 
           <div class="form-group d-flex justify-content-evenly mb-3">
             <div>
-              <label for="  ">Electronic Brakeforce Distribution (EBD)</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Electronic Brakeforce Distribution (EBD)</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="ebd"
+                placeholder="Electronic Brakeforce Distribution (EBD)"
                 value={EBD}
-                onChange={handleEBD}
-              >
-                <option value="" >
-                  Electronic Brakeforce Distribution (EBD)
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setEBD(e.target.value)}
+                list="ebd-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="ebd-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Brake assist (BA)</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Brake assist (BA)</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="brake-assist"
+                placeholder="Brake Assist (BA)"
                 value={Brake_assist}
-                onChange={handleBrake_assist}
-              >
-                <option value="" >
-                  Brake assist (BA)
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setBrake_assist(e.target.value)}
+                list="brake-assist-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="brake-assist-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">ISOFIX Mounts</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">ISOFIX Mounts</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="isofix-mounts"
+                placeholder="ISOFIX Mounts"
                 value={ISOFIX_Mounts}
-                onChange={handleISOFIX_Mounts}
-              >
-                <option value="" >
-                  ISOFIX Mounts
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setISOFIX_Mounts(e.target.value)}
+                list="isofix-mounts-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="isofix-mounts-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Driver & Co-Driver Seatbelt Warning</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Driver & Co-Driver Seatbelt Warning</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="seatbelt-warning"
+                placeholder="Driver & Co-Driver Seatbelt Warning"
                 value={Driver_CoDriver_Seatbelt_Warning}
-                onChange={handleDriver_CoDriver_Seatbelt_Warning}
-              >
-                <option value="" >
-                  Driver & Co-Driver Seatbelt Warning
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setDriver_CoDriver_Seatbelt_Warning(e.target.value)}
+                list="seatbelt-warning-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="seatbelt-warning-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-4">
             <div>
-              <label for="  ">High speed Alert System</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">High speed Alert System</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="high-speed-alert-system"
+                placeholder="High Speed Alert System"
                 value={High_speed_Alert_System}
-                onChange={handleHigh_speed_Alert_System}
-              >
-                <option value="" >
-                  High speed Alert System
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setHigh_speed_Alert_System(e.target.value)}
+                list="high-speed-alert-system-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="high-speed-alert-system-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Speed Sensing Door Locks</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Speed Sensing Door Locks</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="speed-sensing-door-locks"
+                placeholder="Speed Sensing Door Locks"
                 value={Speed_Sensing_Door_Locks}
-                onChange={handleSpeed_Sensing_Door_Locks}
-              >
-                <option value="" >
-                  Speed Sensing Door Locks
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setSpeed_Sensing_Door_Locks(e.target.value)}
+                list="speed-sensing-door-locks-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="speed-sensing-door-locks-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Immobiliser</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Immobiliser</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="immobiliser"
+                placeholder="Immobiliser"
                 value={Immobiliser}
-                onChange={handleImmobiliser}
-              >
-                <option value="" >
-                  Immobiliser
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setImmobiliser(e.target.value)}
+                list="immobiliser-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="immobiliser-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Parking Sensor</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Parking Sensor</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="parking-sensor"
+                placeholder="Parking Sensor"
                 value={Parking_Sensor}
-                onChange={handleParking_Sensor}
-              >
-                <option value="" >
-                  Parking Sensor
-                </option>
-                <option value="YES">YES</option>
-                <option value="FRONT & REAR">Front & Rear</option>
-                <option value="REAR">REAR</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setParking_Sensor(e.target.value)}
+                list="parking-sensor-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="parking-sensor-options">
+                <option value="YES" />
+                <option value="FRONT & REAR" />
+                <option value="REAR" />
+                <option value="NA" />
+              </datalist>
+
             </div>
           </div>
 
@@ -2446,72 +2519,80 @@ const EditVariant = () => {
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
 
             <div>
-              <label for="  ">Touch Screen Infotainment</label>
-              <input type="text" class="form-control" id="  " placeholder="Touch Screen Infotainment" value={Touch_Screen_Infotainment} onChange={(e) => setTouch_Screen_Infotainment(e.target.value)} />
+              <label for=" ">Touch Screen Infotainment</label>
+              <input type="text" class="form-control" id=" " placeholder="Touch Screen Infotainment" value={Touch_Screen_Infotainment} onChange={(e) => setTouch_Screen_Infotainment(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Android & Apple Carplay</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Android & Apple Carplay</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="android-apple-carplay"
+                placeholder="Android & Apple Carplay"
                 value={Android_Apple_Carplay}
-                onChange={handleAndroid_Apple_Carplay}
-              >
-                <option value="" >
-                  Android & Apple Carplay
-                </option>
-                <option value="NA">NA</option>
-                <option value="WIRED">WIRED</option>
-                <option value="WIRELESS">WIRELESS</option>
-              </select>
+                onChange={(e) => setAndroid_Apple_Carplay(e.target.value)}
+                list="android-apple-carplay-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="android-apple-carplay-options">
+                <option value="NA" />
+                <option value="WIRED" />
+                <option value="WIRELESS" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Speakers</label>
-              <input type="text" class="form-control" id="  " placeholder="Speakers" value={Speakers} onChange={(e) => setSpeakers(e.target.value)} />
+              <label for=" ">Speakers</label>
+              <input type="text" class="form-control" id=" " placeholder="Speakers" value={Speakers} onChange={(e) => setSpeakers(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Tweeters</label>
-              <input type="text" class="form-control" id="  " placeholder="Tweeters" value={tweeters} onChange={(e) => settweeters(e.target.value)} />
+              <label for=" ">Tweeters</label>
+              <input type="text" class="form-control" id=" " placeholder="Tweeters" value={tweeters} onChange={(e) => settweeters(e.target.value)} />
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-3">
             <div>
-              <label for="  ">Subwoofers</label>
-              <input type="text" class="form-control" id="  " placeholder="Subwoofers" value={subWoofers} onChange={(e) => setsubWoofers(e.target.value)} />
+              <label for=" ">Subwoofers</label>
+              <input type="text" class="form-control" id=" " placeholder="Subwoofers" value={subWoofers} onChange={(e) => setsubWoofers(e.target.value)} />
             </div>
             <div>
-              <label for="  ">USB-C Charging Ports</label>
-              <input type="text" class="form-control" id="  " placeholder="USB-C Charging Ports" value={USB_C_PORT} onChange={(e) => setUSB_C_PORT(e.target.value)} />
+              <label for=" ">USB-C Charging Ports</label>
+              <input type="text" class="form-control" id=" " placeholder="USB-C Charging Ports" value={USB_C_PORT} onChange={(e) => setUSB_C_PORT(e.target.value)} />
             </div>
             <div>
-              <label for="  ">5A Charging Ports</label>
-              <input type="text" class="form-control" id="  " placeholder="5A Charging Ports" value={FiveAmpiearchargingport} onChange={(e) => setFiveAmpiearchargingport(e.target.value)} />
+              <label for=" ">5A Charging Ports</label>
+              <input type="text" class="form-control" id=" " placeholder="5A Charging Ports" value={FiveAmpiearchargingport} onChange={(e) => setFiveAmpiearchargingport(e.target.value)} />
             </div>
             <div>
-              <label for="  ">12V Charging Ports</label>
-              <input type="text" class="form-control" id="  " placeholder="12V Charging Ports" value={charging12V_Port} onChange={(e) => setcharging12V_Port(e.target.value)} />
+              <label for=" ">12V Charging Ports</label>
+              <input type="text" class="form-control" id=" " placeholder="12V Charging Ports" value={charging12V_Port} onChange={(e) => setcharging12V_Port(e.target.value)} />
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
 
             <div>
-              <label for="  ">Wireless Charging</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Wireless Charging</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="wireless-charging"
+                placeholder="Wireless Charging"
                 value={wireless_Charging}
-                onChange={handlewireless_Charging}
-              >
-                <option value="" >
-                  Wireless Charging
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setwireless_Charging(e.target.value)}
+                list="wireless-charging-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="wireless-charging-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Connected Car Tech</label>
-              <input type="text" class="form-control" id="  " placeholder="Connected Car Tech" value={connectedCarTech} onChange={(e) => setconnectedCarTech(e.target.value)} />
+              <label for=" ">Connected Car Tech</label>
+              <input type="text" class="form-control" id=" " placeholder="Connected Car Tech" value={connectedCarTech} onChange={(e) => setconnectedCarTech(e.target.value)} />
             </div>
           </div>
 
@@ -2526,228 +2607,239 @@ const EditVariant = () => {
           <div className='h2 mt-3 inside-block'>Engine &<span>Transmission</span></div>
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Engine Name</label>
-              <input type="name" class="form-control" id="  " placeholder="Engine Name" value={engine_Name} onChange={(e) => setengine_Name(e.target.value)} />
+              <label for=" ">Engine Name</label>
+              <input type="name" class="form-control" id=" " placeholder="Engine Name" value={engine_Name} onChange={(e) => setengine_Name(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Engine Capacity</label>
-              <input type="number" class="form-control" id="  " placeholder="Engine Capacity" value={Engine_Capacity} onChange={(e) => setEngine_Capacity(e.target.value)} />
+              <label for=" ">Engine Capacity</label>
+              <input type="number" class="form-control" id=" " placeholder="Engine Capacity" value={Engine_Capacity} onChange={(e) => setEngine_Capacity(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Fuel</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Fuel</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="fuel"
+                placeholder="Fuel"
                 value={fuel}
-                onChange={handlefuel}
-              >
-                <option value="" >
-                  Fuel
-                </option>
-                <option value="PETROL">PETROL</option>
-                <option value="DIESEL">DIESEL</option>
-                <option value="CNG">CNG</option>
-                <option value="HYBRID">HYBRID</option>
-                <option value="ELECTRIC">ELECTRIC</option>
-              </select>
+                onChange={(e) => setFuel(e.target.value)}
+                list="fuel-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="fuel-options">
+                <option value="PETROL" />
+                <option value="DIESEL" />
+                <option value="CNG" />
+                <option value="HYBRID" />
+                <option value="ELECTRIC" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Transmission</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Transmission</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="transmission"
+                placeholder="Transmission"
                 value={transmission_2}
-                onChange={handletransmission_2}
-              >
-                <option value="" >
-                  Transmission
-                </option>
-                <option value="MANUAL">Manual</option>
-                <option value="IMT">IMT</option>
-                <option value="AMT">AMT</option>
-                <option value="DUAL CLUTCH">DUAL CLUTCH</option>
-                <option value="TORQUE CONVERTER">TORQUE CONVERTER</option>
-                <option value="CVT">CVT</option>
-                <option value="E-CVT">E-CVT</option>
-                <option value="SINGLE SPEED AUTOMATIC">SINGLE SPEED AUTOMATIC</option>
-              </select>
+                onChange={(e) => setTransmission_2(e.target.value)}
+                list="transmission-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="transmission-options">
+                <option value="MANUAL" />
+                <option value="IMT" />
+                <option value="AMT" />
+                <option value="DUAL CLUTCH" />
+                <option value="TORQUE CONVERTER" />
+                <option value="CVT" />
+                <option value="E-CVT" />
+                <option value="SINGLE SPEED AUTOMATIC" />
+              </datalist>
+
             </div>
           </div>
 
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">No of Gears</label>
-              <input type="name" class="form-control" id="  " placeholder="No of Gears" value={number_of_Gears} onChange={(e) => setnumber_of_Gears(e.target.value)} />
+              <label for=" ">No of Gears</label>
+              <input type="name" class="form-control" id=" " placeholder="No of Gears" value={number_of_Gears} onChange={(e) => setnumber_of_Gears(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Paddle Shifter</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Paddle Shifter</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="paddle-shifter"
+                placeholder="Paddle Shifter"
                 value={paddle_shifter}
-                onChange={handlepaddle_shifter}
-              >
-                <option value="" >
-                  Paddle Shifter
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
-            </div>
-            <div>
-              <label for="  ">Max Power</label>
-              <input type="name" class="form-control" id="  " placeholder="Max Power" value={max_power} onChange={(e) => setmax_power(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">Torque</label>
-              <input type="name" class="form-control" id="  " placeholder="Torque" value={torque} onChange={(e) => settorque(e.target.value)} />
-            </div>
-          </div>
-
-          <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
-            <div>
-              <label for="  ">0 to 100 Kmph Time</label>
-              <input type="name" class="form-control" id="  " placeholder="0 to 100 Kmph Time" value={speed_0_to_100} onChange={(e) => setSpeed_0_to_100(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">Top Speed (Km/h)</label>
-              <input type="number" class="form-control" id="  " placeholder="Top Speed (Km/h)" value={top_speed} onChange={(e) => setTop_speed(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">EV Battery Capacity (kWh)</label>
-              <input type="number" class="form-control" id="  " placeholder="EV Battery Capacity (kWh)" value={EV_Battry_capacity} onChange={(e) => setEV_Battry_capacity(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">Hybrid Battery Capacity (kWh)</label>
-              <input type="number" class="form-control" id="  " placeholder="Hybrid Battery Capacity (kWh)" value={Hybrid_Capacity} onChange={(e) => setHybrid_Capacity(e.target.value)} />
-            </div>
-
-          </div>
-
-          <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
-            <div>
-              <label for="  ">Battery Type</label>
-              <input type="name" class="form-control" id="  " placeholder="Battery Type" value={Battery_type} onChange={(e) => setBattery_type(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">Electric Motor Placement</label>
-              <input type="name" class="form-control" id="  " placeholder="Electric Motor Placement" value={Electric_Motor_placement} onChange={(e) => setElectric_Motor_placement(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">EV Range</label>
-              <input type="number" class="form-control" id="  " placeholder="EV Range" value={EV_Range} onChange={(e) => setEV_Range(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">EV Charging Time</label>
-              <input type="name" class="form-control" id="  " placeholder="EV Charging Time" value={EV_Charging_time} onChange={(e) => setEV_Charging_time(e.target.value)} />
-            </div>
-
-          </div>
-
-
-
-          <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
-            <div>
-              <label for="  ">Max Electric Motor Power</label>
-              <input type="name" class="form-control" id="  " placeholder="Max Electric Motor Power" value={Max_Electric_Motor_Power} onChange={(e) => setMax_Electric_Motor_Power(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">Turbo Charged</label>
-              <select
-                className="form-select inwart"
+                onChange={(e) => setpaddle_shifter(e.target.value)}
+                list="paddle-shifter-options"
                 aria-label="Default select example"
+              />
+
+              <datalist id="paddle-shifter-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+            </div>
+            <div>
+              <label for=" ">Max Power</label>
+              <input type="name" class="form-control" id=" " placeholder="Max Power" value={max_power} onChange={(e) => setmax_power(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">Torque</label>
+              <input type="name" class="form-control" id=" " placeholder="Torque" value={torque} onChange={(e) => settorque(e.target.value)} />
+            </div>
+          </div>
+
+          <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
+            <div>
+              <label for=" ">0 to 100 Kmph Time</label>
+              <input type="name" class="form-control" id=" " placeholder="0 to 100 Kmph Time" value={speed_0_to_100} onChange={(e) => setSpeed_0_to_100(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">Top Speed (Km/h)</label>
+              <input type="number" class="form-control" id=" " placeholder="Top Speed (Km/h)" value={top_speed} onChange={(e) => setTop_speed(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">EV Battery Capacity (kWh)</label>
+              <input type="number" class="form-control" id=" " placeholder="EV Battery Capacity (kWh)" value={EV_Battry_capacity} onChange={(e) => setEV_Battry_capacity(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">Hybrid Battery Capacity (kWh)</label>
+              <input type="number" class="form-control" id=" " placeholder="Hybrid Battery Capacity (kWh)" value={Hybrid_Capacity} onChange={(e) => setHybrid_Capacity(e.target.value)} />
+            </div>
+
+          </div>
+
+          <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
+            <div>
+              <label for=" ">Battery Type</label>
+              <input type="name" class="form-control" id=" " placeholder="Battery Type" value={Battery_type} onChange={(e) => setBattery_type(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">Electric Motor Placement</label>
+              <input type="name" class="form-control" id=" " placeholder="Electric Motor Placement" value={Electric_Motor_placement} onChange={(e) => setElectric_Motor_placement(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">EV Range</label>
+              <input type="number" class="form-control" id=" " placeholder="EV Range" value={EV_Range} onChange={(e) => setEV_Range(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">EV Charging Time</label>
+              <input type="name" class="form-control" id=" " placeholder="EV Charging Time" value={EV_Charging_time} onChange={(e) => setEV_Charging_time(e.target.value)} />
+            </div>
+
+          </div>
+
+
+
+          <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
+            <div>
+              <label for=" ">Max Electric Motor Power</label>
+              <input type="name" class="form-control" id=" " placeholder="Max Electric Motor Power" value={Max_Electric_Motor_Power} onChange={(e) => setMax_Electric_Motor_Power(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">Turbo Charged</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="turbo-charged"
+                placeholder="Turbo Charged"
                 value={Turbo_Charged}
-                onChange={handleTurbo_Charged}
-              >
-                <option value="" >
-                  Turbo Charged
-                </option>
-                <option value="NON-TURBO CHARGED">NON-TURBO CHARGED</option>
-                <option value="TURBO CHARGED">TURBO CHARGED</option>
-              </select>
+                onChange={(e) => setTurbo_Charged(e.target.value)}
+                list="turbo-charged-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="turbo-charged-options">
+                <option value="NON-TURBO CHARGED" />
+                <option value="TURBO CHARGED" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Hybrid Type</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Hybrid Type</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="hybrid-type"
+                placeholder="Hybrid Type"
                 value={Hybrid_Type}
-                onChange={handleHybrid_Type}
-              >
-                <option value="" >
-                  Hybrid Type
-                </option>
-                <option value="NA">NA</option>
-                <option value="MILD-HYBRID">MILD-HYBRID</option>
-                <option value="STRONG-HYBRID">STRONG-HYBRID</option>
-                <option value="PLUG-IN HYBRID">PLUG-IN HYBRID</option>
+                onChange={(e) => setHybrid_Type(e.target.value)}
+                list="hybrid-type-options"
+                aria-label="Default select example"
+              />
 
-                <option value="FULLY ELECTRIC">FULLY ELECTRIC</option>
-              </select>
+              <datalist id="hybrid-type-options">
+                <option value="NA" />
+                <option value="MILD-HYBRID" />
+                <option value="STRONG-HYBRID" />
+                <option value="PLUG-IN HYBRID" />
+                <option value="FULLY ELECTRIC" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Drive Train</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Drive Train</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="drive-train"
+                placeholder="Drive Train"
                 value={driveTrain}
-                onChange={handledriveTrain}
-              >
-                <option value="" >
-                  Drive Train
-                </option>
-                <option value="FRONT WHEEL DRIVE">Front Wheel Drive</option>
-                <option value="REAR WHEEL DRIVE">REAR WHEEL DRIVE</option>
-                <option value="ALL WHEEL DRIVE">ALL WHEEL DRIVE</option>
-                <option value="4x4">4x4</option>
-              </select>
+                onChange={(e) => setDriveTrain(e.target.value)}
+                list="drive-train-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="drive-train-options">
+                <option value="FRONT WHEEL DRIVE" />
+                <option value="REAR WHEEL DRIVE" />
+                <option value="ALL WHEEL DRIVE" />
+                <option value="4x4" />
+              </datalist>
+
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Driving Modes</label>
-              <input type="name" class="form-control" id="  " placeholder="Driving Modes" value={Driving_Modes} onChange={(e) => setDriving_Modes(e.target.value)} />
+              <label for=" ">Driving Modes</label>
+              <input type="name" class="form-control" id=" " placeholder="Driving Modes" value={Driving_Modes} onChange={(e) => setDriving_Modes(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Off Road Modes</label>
-              <input type="name" class="form-control" id="  " placeholder="Off Road Modes" value={offRoadModes} onChange={(e) => setOffRoadModes(e.target.value)} />
+              <label for=" ">Off Road Modes</label>
+              <input type="name" class="form-control" id=" " placeholder="Off Road Modes" value={offRoadModes} onChange={(e) => setOffRoadModes(e.target.value)} />
             </div>
-            {/* <div>
-              <label for="  ">Differential Lock Type</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
-                value={Differential_Lock_Type}
-                onChange={handleDifferential_Lock_Type}
-              >
-                <option value="" >
-                Differential Lock
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
-            </div> */}
             <div>
-              <label for="  ">Differential Lock Type</label>
-              <input type="name" class="form-control" id="  " placeholder="Differential Lock Type" value={Differential_Lock_Type} onChange={(e) => setDifferential_Lock_Type(e.target.value)} />
+              <label for=" ">Differential Lock Type</label>
+              <input type="name" class="form-control" id=" " placeholder="Differential Lock Type" value={Differential_Lock_Type} onChange={(e) => setDifferential_Lock_Type(e.target.value)} />
             </div>
           </div>
 
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Limited Slip Differential</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Limited Slip Differential</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="limited-slip-differential"
+                placeholder="Limited Slip Differential"
                 value={Limited_Slip_Differential}
-                onChange={handleLimited_Slip_Differential}
-              >
-                <option value="" >
-                  Limited Slip Differential
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setLimited_Slip_Differential(e.target.value)}
+                list="limited-slip-differential-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="limited-slip-differential-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
           </div>
 
@@ -2756,49 +2848,50 @@ const EditVariant = () => {
           <div className='h2 mt-3 inside-block'>Seating <span>Comfort</span></div>
           <div class="form-group d-flex justify-content-evenly mb-4">
             <div>
-              <label for="  ">Seat Upholstery</label>
-              <input type="name" class="form-control" id="  " placeholder="Seat Upholstery" value={Seat_Upholstery} onChange={(e) => setSeat_Upholstery(e.target.value)} />
+              <label for=" ">Seat Upholstery</label>
+              <input type="name" class="form-control" id=" " placeholder="Seat Upholstery" value={Seat_Upholstery} onChange={(e) => setSeat_Upholstery(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Seats Adjustment</label>
-              <textarea type="name" class="form-control" id="  " placeholder="Seats Adjustment" rows={3} value={Seats_Adjustment} onChange={(e) => setSeats_Adjustment(e.target.value)} />
+              <label for=" ">Seats Adjustment</label>
+              <textarea type="name" class="form-control" id=" " placeholder="Seats Adjustment" rows={3} value={Seats_Adjustment} onChange={(e) => setSeats_Adjustment(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Driver Seat Adjustment</label>
-              <input type="name" class="form-control" id="  " placeholder="Driver Seat Adjustment" value={Driver_Seat_Adjustment} onChange={(e) => setDriver_Seat_Adjustment(e.target.value)} />
+              <label for=" ">Driver Seat Adjustment</label>
+              <input type="name" class="form-control" id=" " placeholder="Driver Seat Adjustment" value={Driver_Seat_Adjustment} onChange={(e) => setDriver_Seat_Adjustment(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Passenger Seat Adjustment</label>
-              <input type="name" class="form-control" id="  " placeholder="Passenger Seat Adjustment" value={Passenger_Seat_Adjustment} onChange={(e) => setPassenger_Seat_Adjustment(e.target.value)} />
+              <label for=" ">Passenger Seat Adjustment</label>
+              <input type="name" class="form-control" id=" " placeholder="Passenger Seat Adjustment" value={Passenger_Seat_Adjustment} onChange={(e) => setPassenger_Seat_Adjustment(e.target.value)} />
             </div>
+
           </div>
 
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Rear Seat Adjustment</label>
-              <input type="name" class="form-control" id="  " placeholder="Rear Seat Adjustment" value={Rear_Seat_Adjustment} onChange={(e) => setRear_Seat_Adjustment(e.target.value)} />
+              <label for=" ">Rear Seat Adjustment</label>
+              <input type="name" class="form-control" id=" " placeholder="Rear Seat Adjustment" value={Rear_Seat_Adjustment} onChange={(e) => setRear_Seat_Adjustment(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Welcome Seats</label>
-              <input type="name" class="form-control" id="  " placeholder="Welcome Seats" value={Welcome_Seats} onChange={(e) => setWelcome_Seats(e.target.value)} />
+              <label for=" ">Welcome Seats</label>
+              <input type="name" class="form-control" id=" " placeholder="Welcome Seats" value={Welcome_Seats} onChange={(e) => setWelcome_Seats(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Memory Seats</label>
-              <input type="name" class="form-control" id="  " placeholder="Memory Seats" value={Memory_Seats} onChange={(e) => setMemory_Seats(e.target.value)} />
+              <label for=" ">Memory Seats</label>
+              <input type="name" class="form-control" id=" " placeholder="Memory Seats" value={Memory_Seats} onChange={(e) => setMemory_Seats(e.target.value)} />
             </div>
             <div>
               <label for=" ">Roof Rails</label>
               <input type="name" class="form-control" id=" " placeholder="Roof Rails" value={Roof_rails} onChange={(e) => setRoof_rails(e.target.value)} />
             </div>
           </div>
-
           <div class="form-group d-flex justify-content-evenly mb-4 pr-3">
-           
-           <div>
-             <label for=" ">Fog Lights</label>
-             <input type="name" class="form-control" id=" " placeholder="Fog Lights" value={Fog_lights} onChange={(e) => setFog_lights(e.target.value)} />
-           </div>
-         </div>
+
+            <div>
+              <label for=" ">Fog Lights</label>
+              <input type="name" class="form-control" id=" " placeholder="Fog Lights" value={Fog_lights} onChange={(e) => setFog_lights(e.target.value)} />
+            </div>
+          </div>
+
 
 
 
@@ -2808,104 +2901,69 @@ const EditVariant = () => {
 
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Head Lights</label>
-              <input type="name" class="form-control" id="  " placeholder="Head Lights" value={headLight} onChange={(e) => setHeadLight(e.target.value)} />
+              <label for=" ">Head Lights</label>
+              <input type="name" class="form-control" id=" " placeholder="Head Lights" value={headLight} onChange={(e) => setHeadLight(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Tail Light</label>
-              <input type="name" class="form-control" id="  " placeholder="Tail Light" value={tailLight} onChange={(e) => setTailLight(e.target.value)} />
+              <label for=" ">Tail Light</label>
+              <input type="name" class="form-control" id=" " placeholder="Tail Light" value={tailLight} onChange={(e) => setTailLight(e.target.value)} />
             </div>
-            {/* <div>
-              <label for="  ">Front Fog Lights</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
-                value={ignition}
-                onChange={handleignition}
-              >
-                <option value="" >
-                Front Fog Lights
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
-            </div>
-            <div>
-              <label for="  ">Roof Rails</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
-              >
-                <option value="" >
-                Roof Rails
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
-            </div> */}
           </div>
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Radio Antenna</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Radio Antenna</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="radio-antenna"
+                placeholder="Radio Antenna"
                 value={radioAntina}
-                onChange={handleRadioAntina}
-              >
-                <option value="" >
-                  Radio Antenna
-                </option>
-                <option value="REGULAR">REGULAR</option>
-                <option value="SHARK FIN">SHARK FIN</option>
-                <option value="NA">NA</option>
-              </select>
-            </div>
-            <div>
-              <label for="  ">Outside rear view mirror (ORVM) Colour</label>
-              <input type="name" class="form-control" id="  " placeholder="Outside rear view mirror (ORVM) Colour" value={OVRMColor} onChange={(e) => setOVRMColor(e.target.value)} />
-            </div>
-            <div>
-              <label for="  ">Daytime running lights (DRL's)</label>
-              <select
-                className="form-select inwart"
+                onChange={(e) => setRadioAntina(e.target.value)}
+                list="radio-antenna-options"
                 aria-label="Default select example"
+              />
+
+              <datalist id="radio-antenna-options">
+                <option value="REGULAR" />
+                <option value="SHARK FIN" />
+                <option value="NA" />
+              </datalist>
+
+            </div>
+            <div>
+              <label for=" ">Outside rear view mirror (ORVM) Colour</label>
+              <input type="name" class="form-control" id=" " placeholder="Outside rear view mirror (ORVM) Colour" value={OVRMColor} onChange={(e) => setOVRMColor(e.target.value)} />
+            </div>
+            <div>
+              <label for=" ">Daytime running lights (DRL's)</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="drl"
+                placeholder="Daytime Running Lights (DRL's)"
                 value={DRL}
-                onChange={handleDRL}
-              >
-                <option value="" >
-                  Daytime running lights (DRL's)
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
+                onChange={(e) => setDRL(e.target.value)}
+                list="drl-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="drl-options">
+                <option value="YES" />
+                <option value="NA" />
+              </datalist>
+
             </div>
 
             <div>
-              <label for="  ">Side Indicator</label>
-              <input type="name" class="form-control" id="  " placeholder="Side Indicator" value={sideIndicator} onChange={(e) => setSideIndicator(e.target.value)} />
+              <label for=" ">Side Indicator</label>
+              <input type="name" class="form-control" id=" " placeholder="Side Indicator" value={sideIndicator} onChange={(e) => setSideIndicator(e.target.value)} />
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Rear Windshield Wiper With Washer</label>
-              <input type="name" class="form-control" id="  " placeholder="Rear Windshield Wiper With Washer" value={rear_windsheeld_wiper} onChange={(e) => setRear_Windsheeld_Wiper(e.target.value)} />
+              <label for=" ">Rear Windshield Wiper With Washer</label>
+              <input type="name" class="form-control" id=" " placeholder="Rear Windshield Wiper With Washer" value={rear_windsheeld_wiper} onChange={(e) => setRear_Windsheeld_Wiper(e.target.value)} />
             </div>
-            {/* <div>
-              <label for="  ">Rear Windshield Wiper With Washer</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
-                value={ignition}
-                onChange={handleignition}
-              >
-                <option value="" >
-                Rear Windshield Wiper With Washer
-                </option>
-                <option value="YES">YES</option>
-                <option value="NA">NA</option>
-              </select>
-            </div> */}
           </div>
 
 
@@ -2916,34 +2974,34 @@ const EditVariant = () => {
 
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Ground Clearance</label>
-              <input type="number" class="form-control" id="  " placeholder="Ground Clearance" value={Ground_Clearance} onChange={(e) => setGround_Clearance(e.target.value)} />
+              <label for=" ">Ground Clearance</label>
+              <input type="number" class="form-control" id=" " placeholder="Ground Clearance" value={Ground_Clearance} onChange={(e) => setGround_Clearance(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Length</label>
-              <input type="number" class="form-control" id="  " placeholder="Length" value={Length} onChange={(e) => setLength(e.target.value)} />
+              <label for=" ">Length</label>
+              <input type="number" class="form-control" id=" " placeholder="Length" value={Length} onChange={(e) => setLength(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Width</label>
-              <input type="number" class="form-control" id="  " placeholder="Width" value={Weidth} onChange={(e) => setWeidth(e.target.value)} />
+              <label for=" ">Width</label>
+              <input type="number" class="form-control" id=" " placeholder="Width" value={Weidth} onChange={(e) => setWeidth(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Height</label>
-              <input type="number" class="form-control" id="  " placeholder="Height" value={Height} onChange={(e) => setHeight(e.target.value)} />
+              <label for=" ">Height</label>
+              <input type="number" class="form-control" id=" " placeholder="Height" value={Height} onChange={(e) => setHeight(e.target.value)} />
             </div>
           </div>
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Wheelbase</label>
-              <input type="number" class="form-control" id="  " placeholder="Wheelbase" value={wheelBase} onChange={(e) => setWheelBase(e.target.value)} />
+              <label for=" ">Wheelbase</label>
+              <input type="number" class="form-control" id=" " placeholder="Wheelbase" value={wheelBase} onChange={(e) => setWheelBase(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Turning Radius</label>
-              <input type="number" class="form-control" id="  " placeholder="Turning Radius" value={turningRadious} onChange={(e) => setTurningRadious(e.target.value)} />
+              <label for=" ">Turning Radius</label>
+              <input type="number" class="form-control" id=" " placeholder="Turning Radius" value={turningRadious} onChange={(e) => setTurningRadious(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Kerb Weight</label>
-              <input type="number" class="form-control" id="  " placeholder="Kerb Weight" value={Kerb_Weight} onChange={(e) => setKerb_Weight(e.target.value)} />
+              <label for=" ">Kerb Weight</label>
+              <input type="number" class="form-control" id=" " placeholder="Kerb Weight" value={Kerb_Weight} onChange={(e) => setKerb_Weight(e.target.value)} />
             </div>
           </div>
 
@@ -2955,43 +3013,26 @@ const EditVariant = () => {
 
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Front Tyre Profile</label>
-              <input type="name" class="form-control" id="  " placeholder="Front Tyre Profile" value={Front_Tyre_Profile} onChange={(e) => setFront_Tyre_Profile(e.target.value)} />
+              <label for=" ">Front Tyre Profile</label>
+              <input type="name" class="form-control" id=" " placeholder="Front Tyre Profile" value={Front_Tyre_Profile} onChange={(e) => setFront_Tyre_Profile(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Rear Tyre Profile</label>
-              <input type="name" class="form-control" id="  " placeholder="Rear Tyre Profile" value={Rear_Tyre_Profile} onChange={(e) => setRear_Tyre_Profile(e.target.value)} />
+              <label for=" ">Rear Tyre Profile</label>
+              <input type="name" class="form-control" id=" " placeholder="Rear Tyre Profile" value={Rear_Tyre_Profile} onChange={(e) => setRear_Tyre_Profile(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Spare Tyre Profile</label>
-              <input type="name" class="form-control" id="  " placeholder="Spare Tyre Profile" value={Spare_Tyre_Profile} onChange={(e) => setSpare_Tyre_Profile(e.target.value)} />
+              <label for=" ">Spare Tyre Profile</label>
+              <input type="name" class="form-control" id=" " placeholder="Spare Tyre Profile" value={Spare_Tyre_Profile} onChange={(e) => setSpare_Tyre_Profile(e.target.value)} />
             </div>
-            {/* <div>
-              <label for="  ">Spare Wheel Type</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
-                value={ignition}
-                onChange={handleignition}
-              >
-                <option value="" >
-                Spare Wheel Type
-                </option>
-                <option value="NA">NA</option>
-                <option value="Steel">Steel</option>
-                <option value="Full Size">Full Size</option>
-                <option value="Space Saver">Space Saver</option>
-              </select>
-            </div> */}
           </div>
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Front Suspension</label>
-              <input type="text" class="form-control" id="  " placeholder="Front Suspension" value={Front_Suspension} onChange={(e) => setFront_Suspension(e.target.value)} />
+              <label for=" ">Front Suspension</label>
+              <input type="text" class="form-control" id=" " placeholder="Front Suspension" value={Front_Suspension} onChange={(e) => setFront_Suspension(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Rear Suspension</label>
-              <input type="text" class="form-control" id="  " placeholder="Rear Suspension" value={Rear_Suspension} onChange={(e) => setRear_Suspension(e.target.value)} />
+              <label for=" ">Rear Suspension</label>
+              <input type="text" class="form-control" id=" " placeholder="Rear Suspension" value={Rear_Suspension} onChange={(e) => setRear_Suspension(e.target.value)} />
             </div>
             <div>
               <label for=" ">Spare wheel</label>
@@ -3006,31 +3047,35 @@ const EditVariant = () => {
 
           <div class="form-group d-flex justify-content-evenly mb-4 mt-5">
             <div>
-              <label for="  ">Cupholders</label>
-              <select
-                className="form-select inwart"
-                aria-label="Default select example"
+              <label for=" ">Cupholders</label>
+              <input
+                type="text"
+                className="form-control inwart"
+                id="cupholders"
+                placeholder="Cupholders"
                 value={Cupholders}
-                onChange={handleCupholders}
-              >
-                <option value="" >
-                  Cupholders
-                </option>
-                <option value="NA">NA</option>
-                <option value="YES">YES</option>
-              </select>
+                onChange={(e) => setCupholders(e.target.value)}
+                list="cupholders-options"
+                aria-label="Default select example"
+              />
+
+              <datalist id="cupholders-options">
+                <option value="NA" />
+                <option value="YES" />
+              </datalist>
+
             </div>
             <div>
-              <label for="  ">Fuel Tank Capacity</label>
-              <input type="number" class="form-control" id="  " placeholder="Fuel Tank Capacity" value={Fuel_Tank_Capacity} onChange={(e) => setFuel_Tank_Capacity(e.target.value)} />
+              <label for=" ">Fuel Tank Capacity</label>
+              <input type="number" class="form-control" id=" " placeholder="Fuel Tank Capacity" value={Fuel_Tank_Capacity} onChange={(e) => setFuel_Tank_Capacity(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Boot Space</label>
-              <input type="number" class="form-control" id="  " placeholder="Boot Space" value={boot_Space} onChange={(e) => setBoot_Space(e.target.value)} />
+              <label for=" ">Boot Space</label>
+              <input type="number" class="form-control" id=" " placeholder="Boot Space" value={boot_Space} onChange={(e) => setBoot_Space(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Boot Space after folding last row seats</label>
-              <input type="number" class="form-control" id="  " placeholder="Boot Space after folding last row seats" value={Boot_Space_after} onChange={(e) => setBoot_Space_after(e.target.value)} />
+              <label for=" ">Boot Space after folding last row seats</label>
+              <input type="number" class="form-control" id=" " placeholder="Boot Space after folding last row seats" value={Boot_Space_after} onChange={(e) => setBoot_Space_after(e.target.value)} />
             </div>
           </div>
         </div>
@@ -3042,20 +3087,20 @@ const EditVariant = () => {
 
           <div class="form-group d-flex justify-content-evenly mb-3">
             <div>
-              <label for="  ">Engine Name</label>
-              <input type="Name" class="form-control" id="  " placeholder="Engine Name" value={Engine_Name_Varient} onChange={(e) => setEngine_Name_Varient(e.target.value)} />
+              <label for=" ">Engine Name</label>
+              <input type="Name" class="form-control" id=" " placeholder="Engine Name" value={Engine_Name_Varient} onChange={(e) => setEngine_Name_Varient(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Company Claimed</label>
-              <input type="number" class="form-control" id="  " placeholder="Company Claimed" value={Company_Claimed} onChange={(e) => setCompany_Claimed(e.target.value)} />
+              <label for=" ">Company Claimed</label>
+              <input type="number" class="form-control" id=" " placeholder="Company Claimed" value={Company_Claimed} onChange={(e) => setCompany_Claimed(e.target.value)} />
             </div>
             <div>
-              <label for="  ">City Real World</label>
-              <input type="number" class="form-control" id="  " placeholder="City Real World" value={City_Real_World} onChange={(e) => setCity_Real_World(e.target.value)} />
+              <label for=" ">City Real World</label>
+              <input type="number" class="form-control" id=" " placeholder="City Real World" value={City_Real_World} onChange={(e) => setCity_Real_World(e.target.value)} />
             </div>
             <div>
-              <label for="  ">Highway Real World</label>
-              <input type="number" class="form-control" id="  " placeholder="Highway Real World" value={Highway_Real_World} onChange={(e) => setHighway_Real_World(e.target.value)} />
+              <label for=" ">Highway Real World</label>
+              <input type="number" class="form-control" id=" " placeholder="Highway Real World" value={Highway_Real_World} onChange={(e) => setHighway_Real_World(e.target.value)} />
             </div>
           </div>
         </div>
