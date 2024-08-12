@@ -339,6 +339,8 @@ const edit_variant = async (req, res) => {
 
 
 //DELETE ALL VARIENTS
+// DELETE ALL VARIANTS
+// DELETE ALL VARIANTS
 const delete_all_variants = async (req, res) => {
     try {
         // Find all variants
@@ -349,11 +351,27 @@ const delete_all_variants = async (req, res) => {
 
         // Prepare promises for deleting all variants and their images
         const deletePromises = variants.map(async (variant) => {
+            if (!variant.images || !Array.isArray(variant.images)) {
+                console.warn('No images found for variant:', variant._id);
+                return Promise.resolve(); // Skip deletion if images are invalid or missing
+            }
+
             // Delete images associated with this variant
             const imageDeletePromises = variant.images.map(image => {
+                if (!image.filename) {
+                    console.warn('Image filename is missing for variant:', variant._id);
+                    return Promise.resolve(); // Skip deletion if filename is missing
+                }
+
                 const imagePath = path.join(__dirname, '..', 'public', 'varientImages', image.filename);
                 return fs.promises.unlink(imagePath)
-                    .catch(err => console.error(`Failed to delete image ${image.filename}: ${err}`));
+                    .catch(err => {
+                        if (err.code === 'ENOENT') {
+                            console.warn(`Image file not found: ${imagePath}`);
+                        } else {
+                            console.error(`Failed to delete image ${image.filename}: ${err}`);
+                        }
+                    });
             });
 
             // Wait for all image deletions to complete for this variant
@@ -372,6 +390,7 @@ const delete_all_variants = async (req, res) => {
         res.status(400).send({ success: false, msg: error.message });
     }
 };
+
 
 
 module.exports ={
