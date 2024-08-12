@@ -43,18 +43,18 @@ const upload = multer({
 router.post('/upload-dealership-csv',upload.single('csvFile'),csvController.dealershipCSVcontroller);
 
 //GET ALL DEALERSHIP DATA FOR ADMIN PANAL
-router.get('/dealershipdata-for-admin', csvController.get_all_list_for_admin_delaershipList );
+router.get('/dealershipdata-for-admin', csvController.get_all_list_for_admin_dealershipList );
 
 //GET ALL DEALERSHIP DATA FOR APP AND WEB || APP AND WEB
-router.get('/alldealership-data-for-frontend', csvController.get_all_list_for_appandweb_delaershipList);
+router.get('/alldealership-data-for-frontend', csvController.get_all_list_for_appandweb_dealershipList);
 
 //Count total number of Delership from Brand Id || APP AND WEB
 router.get('/totalcount-by-brand', csvController.count_dealership_by_brand);
 
 //DELETE delership by name || Admin Panal
-router.delete('/delete-delership-by-name', csvController.delete_delership_by_name);
+router.delete('/delete-delership-by-name', csvController.delete_dealership_by_name);
 
 //CITY WISE DELERSHIP BY BRANDID || APP and WEB || GET
-router.get('/city-wise-delership-by-brand', csvController.get_city_wise_delershipCentres_by_brand);
+router.get('/city-wise-delership-by-brand', csvController.get_city_wise_dealershipCentres_by_brand);
 
 module.exports = router

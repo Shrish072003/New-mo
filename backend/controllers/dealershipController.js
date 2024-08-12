@@ -4,7 +4,6 @@ const csv = require('fast-csv');
 const dealershipModule = require('../models/dealershipModel');
 
 const dealershipCSVcontroller = async (req, res) => {
-    
     const allRecords = [];
     if (!req.file || !req.file.filename) {
         return res.status(400).json({ error: 'No file uploaded.' });
@@ -13,11 +12,12 @@ const dealershipCSVcontroller = async (req, res) => {
     const filePath = path.join(__dirname, '../public/uploadDealershipCsv', req.file.filename);
     
     try {
-        fs.createReadStream(filePath)
+        const fileStream = fs.createReadStream(filePath)
             .pipe(csv.parse({ headers: true }))
             .on('error', error => {
-                console.error(error);
-                return res.status(500).json(error);
+                console.error('Error during CSV parsing:', error);
+                // It's important to ensure the error is only logged here
+                // The response should be handled outside of this stream handling
             })
             .on('data', row => {
                 allRecords.push(row);
@@ -25,65 +25,71 @@ const dealershipCSVcontroller = async (req, res) => {
             .on('end', async () => {
                 console.log(`${allRecords.length} rows have been parsed.`);
                 try {
-                    // Loop through all records and upsert each one
+                    // Upsert each record into the database
                     for (const record of allRecords) {
                         await dealershipModule.updateOne(
-                            { address: record.address }, // Use dealershipName as the filter criteria for upsert
-                            { $set: record }, // Update
-                            { upsert: true } // Upsert option
+                            { address: record.address }, // Use address as the unique identifier
+                            { $set: record }, // Update existing records with new data
+                            { upsert: true } // Insert if not exists
                         );
                     }
+                    // Optionally delete the file after processing
+                    fs.unlinkSync(filePath);
                     res.json({ message: `${allRecords.length} rows have been parsed and upserted.` });
                 } catch (err) {
-                    console.error(err);
-                    res.status(500).json(err);
+                    console.error('Error during database upsert:', err);
+                    res.status(500).json({ error: 'Error while upserting records.', details: err });
                 }
             });
+
+        // If there's any error during file handling or streaming
+        fileStream.on('error', (streamError) => {
+            console.error('Error during file handling:', streamError);
+            res.status(500).json({ error: 'File handling error.', details: streamError });
+        });
+
     } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
+        console.error('Error during file processing:', err);
+        res.status(500).json({ error: 'Unexpected server error.', details: err });
     }
 }
 
-//GET ALL DEALERSHIP LIST FOR ADMIN PANAL
-const get_all_list_for_admin_delaershipList = async(req,res) =>{
-    try{
+// GET ALL DEALERSHIP LIST FOR ADMIN PANEL
+const get_all_list_for_admin_dealershipList = async (req, res) => {
+    try {
         const dealershipList = await dealershipModule.find({})
-                                                    .populate({ path: 'brand', select: 'name' })
+            .populate({ path: 'brand', select: 'name' });
 
-    res.status(200).send({ success: true, message: "All Dealership Retrieved", data: dealershipList });
-
-    }
-    catch(error){
+        res.status(200).send({ success: true, message: "All Dealerships Retrieved", data: dealershipList });
+    } catch (error) {
+        console.error('Error while fetching list of dealerships:', error);
         res.status(500).send({
             success: false,
             message: "Error while fetching list of dealerships",
             data: error
-        })
+        });
     }
 }
 
-//Get All List of Dealership for app and web
-const get_all_list_for_appandweb_delaershipList = async(req,res) =>{
-    try{
+// GET ALL LIST OF DEALERSHIPS FOR APP AND WEB
+const get_all_list_for_appandweb_dealershipList = async (req, res) => {
+    try {
         const dealershipList = await dealershipModule.find({})
-                                                    .populate({ path: 'brand', select: 'name' })
+            .populate({ path: 'brand', select: 'name' });
 
-    res.status(200).send({ success: true, message: "All Dealership Retrieved", data: dealershipList });
-
-    }
-    catch(error){
+        res.status(200).send({ success: true, message: "All Dealerships Retrieved", data: dealershipList });
+    } catch (error) {
+        console.error('Error while fetching list of dealerships:', error);
         res.status(500).send({
             success: false,
             message: "Error while fetching list of dealerships",
             data: error
-        })
+        });
     }
 }
-
 
 // Function to count dealerships by a specific brand ID
-const count_dealership_by_brand = async(req, res) =>{
+const count_dealership_by_brand = async (req, res) => {
     try {
         const { brandId, city } = req.body;
         let total_data;
@@ -104,71 +110,72 @@ const count_dealership_by_brand = async(req, res) =>{
             });
         }
     } catch (error) {
+        console.error('Error while counting dealerships:', error);
         res.status(500).send({
             success: false,
-            message: "Error while counting",
+            message: "Error while counting dealerships",
             error: error
         });
     }
 }
 
-// Function to delete a specific Delership by name
-const delete_delership_by_name = async (req, res) => {
+// Function to delete a specific Dealership by name
+const delete_dealership_by_name = async (req, res) => {
     const { dealershipName } = req.body;
     try {
         const deletionResult = await dealershipModule.deleteOne({ dealershipName: dealershipName });
         if (deletionResult.deletedCount === 0) {
             return res.status(404).json({
                 success: false,
-                message: "No service center found with the specified name."
+                message: "No dealership found with the specified name."
             });
         }
         res.status(200).json({
             success: true,
-            message: " Dealer deleted successfully."
+            message: "Dealership deleted successfully."
         });
     } catch (error) {
+        console.error('Error while deleting the dealership:', error);
         res.status(500).json({
             success: false,
-            message: "Error while deleting the service center.",
+            message: "Error while deleting the dealership.",
             error: error
         });
     }
 }
 
-//City and Brand Wise Delership for app and web
-const get_city_wise_delershipCentres_by_brand = async (req, res) => {
+// City and Brand Wise Dealership for app and web
+const get_city_wise_dealershipCentres_by_brand = async (req, res) => {
     const { city, brandId } = req.body;
     try {
-        const delershipCentre = await dealershipModule.find({ city: city, brand: brandId })
-                                                 .populate({ path: 'brand', select: 'name' });
-        if (delershipCentre.length === 0) {
+        const dealershipCentre = await dealershipModule.find({ city: city, brand: brandId })
+            .populate({ path: 'brand', select: 'name' });
+        if (dealershipCentre.length === 0) {
             return res.status(404).json({
                 success: false,
-                message: "No Delership found for the specified brand in the specified city."
+                message: "No Dealership found for the specified brand in the specified city."
             });
         }
         res.status(200).json({
             success: true,
-            message: "Sales centres retrieved successfully.",
-            data: delershipCentre
+            message: "Dealership centres retrieved successfully.",
+            data: dealershipCentre
         });
     } catch (error) {
+        console.error('Error while fetching dealership centres:', error);
         res.status(500).json({
             success: false,
-            message: "Error while fetching service centres.",
+            message: "Error while fetching dealership centres.",
             error: error
         });
     }
 }
-
-
 
 module.exports = {
     dealershipCSVcontroller,
-    get_all_list_for_admin_delaershipList,
-    get_all_list_for_appandweb_delaershipList,
+    get_all_list_for_admin_dealershipList,
+    get_all_list_for_appandweb_dealershipList,
     count_dealership_by_brand,
-    delete_delership_by_name,
-    get_city_wise_delershipCentres_by_brand
+    delete_dealership_by_name,
+    get_city_wise_dealershipCentres_by_brand
 };
