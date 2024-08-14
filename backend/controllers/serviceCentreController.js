@@ -12,11 +12,11 @@ const serviceCentreCSVcontroller = async (req, res) => {
     const filePath = path.join(__dirname, '../public/uploadserviceCsv', req.file.filename);
     
     try {
-        fs.createReadStream(filePath)
+        const fileStream = fs.createReadStream(filePath)
             .pipe(csv.parse({ headers: true }))
             .on('error', error => {
                 console.error('CSV Parsing Error:', error);
-                res.status(500).json({ error: 'Error parsing CSV file.' });
+                // Log the error but do not attempt to send a response here
             })
             .on('data', row => {
                 allRecords.push(row);
@@ -26,60 +26,68 @@ const serviceCentreCSVcontroller = async (req, res) => {
                 try {
                     for (const record of allRecords) {
                         await serviceModel.updateOne(
-                            { address: record.address },
-                            { $set: record },
-                            { upsert: true }
+                            { address: record.address },  // Use address as the unique identifier
+                            { $set: record },  // Update with new data
+                            { upsert: true }  // Insert if not exists
                         );
                     }
+                    // Optionally delete the file after processing
+                    fs.unlinkSync(filePath);
                     res.json({ message: `${allRecords.length} rows have been parsed and upserted.` });
                 } catch (err) {
                     console.error('Database Update Error:', err);
-                    res.status(500).json({ error: 'Error updating database.' });
+                    res.status(500).json({ error: 'Error updating database.', details: err });
                 }
             });
+
+        // Handle stream errors
+        fileStream.on('error', (streamError) => {
+            console.error('Error during file handling:', streamError);
+            res.status(500).json({ error: 'File handling error.', details: streamError });
+        });
+
     } catch (err) {
         console.error('File Read Error:', err);
-        res.status(500).json({ error: 'Error reading the file.' });
+        res.status(500).json({ error: 'Error reading the file.', details: err });
     }
 };
-//GET ALL DEALERSHIP LIST FOR ADMIN PANAL
-const get_all_list_for_admin_servicecentreList = async(req,res) =>{
-    try{
-        const dealershipList = await serviceModel.find({})
-                                                    .populate({ path: 'brand', select: 'name' })
 
-    res.status(200).send({ success: true, message: "All Dealership Retrieved", data: dealershipList });
+// GET ALL SERVICE CENTRE LIST FOR ADMIN PANEL
+const get_all_list_for_admin_servicecentreList = async (req, res) => {
+    try {
+        const serviceCentreList = await serviceModel.find({})
+            .populate({ path: 'brand', select: 'name' });
 
-    }
-    catch(error){
+        res.status(200).send({ success: true, message: "All Service Centres Retrieved", data: serviceCentreList });
+    } catch (error) {
+        console.error('Error while fetching list of service centres:', error);
         res.status(500).send({
             success: false,
-            message: "Error while fetching list of dealerships",
+            message: "Error while fetching list of service centres",
             data: error
-        })
+        });
     }
 }
 
-//Get All List of Dealership for app and web
-const get_all_list_for_appandweb_servicecentreList = async(req,res) =>{
-    try{
-        const dealershipList = await serviceModel.find({})
-                                                    .populate({ path: 'brand', select: 'name' })
+// GET ALL SERVICE CENTRE LIST FOR APP AND WEB
+const get_all_list_for_appandweb_servicecentreList = async (req, res) => {
+    try {
+        const serviceCentreList = await serviceModel.find({})
+            .populate({ path: 'brand', select: 'name' });
 
-    res.status(200).send({ success: true, message: "All Dealership Retrieved", data: dealershipList });
-
-    }
-    catch(error){
+        res.status(200).send({ success: true, message: "All Service Centres Retrieved", data: serviceCentreList });
+    } catch (error) {
+        console.error('Error while fetching list of service centres:', error);
         res.status(500).send({
             success: false,
-            message: "Error while fetching list of dealerships",
+            message: "Error while fetching list of service centres",
             data: error
-        })
+        });
     }
 }
 
-// Function to count dealerships by a specific brand ID
-const count_serviceCentre_by_brand = async(req, res) =>{
+// Function to count service centres by a specific brand ID
+const count_serviceCentre_by_brand = async (req, res) => {
     try {
         const { brandId, city } = req.body;
         let total_data;
@@ -100,15 +108,16 @@ const count_serviceCentre_by_brand = async(req, res) =>{
             });
         }
     } catch (error) {
+        console.error('Error while counting service centres:', error);
         res.status(500).send({
             success: false,
-            message: "Error while counting",
+            message: "Error while counting service centres",
             error: error
         });
     }
 }
 
-// Function to delete a specific service center by name
+// Function to delete a specific service centre by name
 const delete_serviceCentre_by_name = async (req, res) => {
     const { serviceCentreName } = req.body;
     try {
@@ -116,29 +125,29 @@ const delete_serviceCentre_by_name = async (req, res) => {
         if (deletionResult.deletedCount === 0) {
             return res.status(404).json({
                 success: false,
-                message: "No service center found with the specified name."
+                message: "No service centre found with the specified name."
             });
         }
         res.status(200).json({
             success: true,
-            message: "Service center deleted successfully."
+            message: "Service centre deleted successfully."
         });
     } catch (error) {
+        console.error('Error while deleting the service centre:', error);
         res.status(500).json({
             success: false,
-            message: "Error while deleting the service center.",
+            message: "Error while deleting the service centre.",
             error: error
         });
     }
 }
 
-
-// Function to get city-wise service centres || APP & WEB
+// Function to get city-wise service centres by brand || APP & WEB
 const get_city_wise_serviceCentres_by_brand = async (req, res) => {
     const { city, brandId } = req.body;
     try {
         const serviceCentres = await serviceModel.find({ city: city, brand: brandId })
-                                                 .populate({ path: 'brand', select: 'name' });
+            .populate({ path: 'brand', select: 'name' });
         if (serviceCentres.length === 0) {
             return res.status(404).json({
                 success: false,
@@ -151,6 +160,7 @@ const get_city_wise_serviceCentres_by_brand = async (req, res) => {
             data: serviceCentres
         });
     } catch (error) {
+        console.error('Error while fetching service centres:', error);
         res.status(500).json({
             success: false,
             message: "Error while fetching service centres.",
@@ -159,14 +169,11 @@ const get_city_wise_serviceCentres_by_brand = async (req, res) => {
     }
 }
 
-
-
 module.exports = {
- serviceCentreCSVcontroller,
- get_all_list_for_admin_servicecentreList,
- get_all_list_for_appandweb_servicecentreList,
- count_serviceCentre_by_brand,
- delete_serviceCentre_by_name,
- get_city_wise_serviceCentres_by_brand
-    
+    serviceCentreCSVcontroller,
+    get_all_list_for_admin_servicecentreList,
+    get_all_list_for_appandweb_servicecentreList,
+    count_serviceCentre_by_brand,
+    delete_serviceCentre_by_name,
+    get_city_wise_serviceCentres_by_brand
 };
