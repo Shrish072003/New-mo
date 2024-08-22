@@ -345,8 +345,52 @@ app.post('/cars',  (req, res ) => {
 
 //getall
 const Variant = require('../models/varientModel');
-
 app.get("/allproducts/mo", async (req, res) => {
+  try {
+    // Get the page number from the query string, defaulting to 1 if not provided
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10; // Number of items per page
+    const skip = (page - 1) * limit;
+
+    // Find all cars that are not upcoming, with pagination
+    const cars = await Car.find({ upcoming: { $ne: "true" } })
+                          .populate('brand')
+                          .skip(skip) // Skip documents for pagination
+                          .limit(limit) // Limit the number of documents to fetch
+                          .lean(); // Use lean for performance
+
+    // For each car, find the variants with the lowest and highest Ex-showroom prices
+    const carsWithPrices = await Promise.all(cars.map(async (car) => {
+      // Single query to fetch both the lowest and highest price variant
+      const variants = await Variant.find({ product_id: car._id, active: true })
+                                    .sort({ exShowroomPrice: 1 }) // Sort by price ascending
+                                    .select('exShowroomPrice') // Only select price field
+                                    .lean(); // Use lean for performance
+
+      // The first entry is the lowest price, the last entry is the highest price
+      const lowestExShowroomPrice = variants.length > 0 ? variants[0].exShowroomPrice : null;
+      const highestExShowroomPrice = variants.length > 1 ? variants[variants.length - 1].exShowroomPrice : lowestExShowroomPrice;
+
+      return {
+        ...car, // Already a plain object due to lean()
+        lowestExShowroomPrice,
+        highestExShowroomPrice
+      };
+    }));
+
+    res.json({
+      page,
+      limit,
+      data: carsWithPrices
+    });
+  } catch (err) {
+    console.error('Error in fetching cars with variant prices:', err);
+    res.status(500).json({ message: 'Error retrieving cars and their variant prices' });
+  }
+});
+
+//NEW GET ROUTE
+app.get("/allproducts/mo-admin", async (req, res) => {
   try {
     // Find all cars that are not upcoming
     const cars = await Car.find({ upcoming: { $ne: "true" }}).populate('brand');

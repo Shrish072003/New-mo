@@ -42,7 +42,7 @@ const ProductTable = () => {
     try {
       let productsUrl = showUpcoming
         ? `${process.env.REACT_APP_API}/api/cars/upcoming`
-        : `${process.env.REACT_APP_API}/api/allproducts/mo`;
+        : `${process.env.REACT_APP_API}/api/allproducts/mo-admin`;
 
       if (selectedBrand && !showUpcoming) {
         productsUrl = `${process.env.REACT_APP_API}/api/cars/brand/${selectedBrand}`;
@@ -333,3 +333,4 @@ const ProductTable = () => {
 };
 
 export default ProductTable;
+
